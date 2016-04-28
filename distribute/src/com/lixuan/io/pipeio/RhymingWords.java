@@ -18,14 +18,18 @@ import java.io.Reader;
  ************************************************************************************/
 public class RhymingWords {
 
+	/*主线程*/
 	public static void main(String[] args) throws IOException {
 		
+		//节点流
 		FileReader words = new FileReader("D:\\logs\\distribute\\mywords.txt");
 		
 		//进行单词的逆序    排序    再逆序还原
+		//字符输入流顶层类
 		Reader rhymedWords = reverse(sort(reverse(words)));
 		
-		//将处理过的单词输出显示
+		/*将处理过的单词输出显示*/
+		//缓存流
 		BufferedReader in = new BufferedReader(rhymedWords);
 		String input;
 		while((input = in.readLine()) != null){
@@ -37,12 +41,16 @@ public class RhymingWords {
 	/**创建管道,创建并启动单词逆序线程**/
 	public static Reader reverse(Reader source) throws IOException {
 		BufferedReader in = new BufferedReader(source);
+		
+		/*1.创建管道流，并将管道输出流和管道输入流进行挂接*/
 		PipedWriter pipeOut = new PipedWriter();
 		PipedReader pipeIn = new PipedReader(pipeOut);
 		
+		/*2.将管道输出流传递给ReverseThread作为该线程的输出流*/
 		PrintWriter out = new PrintWriter(pipeOut);
 		new ReverseThread(out, in).start();
 		
+		/*3.将管道输人流作为主线程的输入流*/
 		return pipeIn;
 	}
 	
@@ -51,10 +59,16 @@ public class RhymingWords {
 	 * @throws IOException **/
 	public static Reader sort(Reader source) throws IOException{
 		BufferedReader in = new BufferedReader(source);
+		
+		/*1.创建管道流，并将管道输出流和管道输入流进行挂接*/
 		PipedWriter pipeOut = new PipedWriter();
 		PipedReader pipeIn = new PipedReader(pipeOut);
+		
+		/*2.将管道输出流传递给SortThread作为该线程输出流*/
 		PrintWriter out = new PrintWriter(pipeOut);
 		new SortThread(out, in).start();
+		
+		/*3.将管道输入流作为主线程的输入流*/
 		return pipeIn;
 	}
 	
