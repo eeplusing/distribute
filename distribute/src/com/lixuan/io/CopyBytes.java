@@ -20,8 +20,8 @@ public class CopyBytes {
 	public static void main(String[] args) throws IOException {
 		
 		/*字节流*/
-		File inputFile = new File("D:\\logs\\distribute\\inputfile.txt");
-		File outputFile = new File("D:\\logs\\distribute\\outfile.txt");
+		File inputFile = new File("src\\com\\lixuan\\io\\inputfile.txt");
+		File outputFile = new File("src\\com\\lixuan\\io\\outfile.txt");
 		FileInputStream in = new FileInputStream(inputFile);
 		FileOutputStream out = new FileOutputStream(outputFile);
 		int byteStream;
