@@ -2,13 +2,16 @@ package com.lixuan.huawei.junior;
 
 import java.util.Scanner;
 
-public class Thr extends Thread {  
+/*有4个线程和1个公共的字符数组。线程1的功能就是向数组输出A，线程2的功能就是向字符输出B，
+ 线程3的功能就是向数组输出C，线程4的功能就是向数组输出D。
+ 要求按顺序向数组赋值ABCDABCDABCD，ABCD的个数由线程函数1的参数指定。*/
+public class ThreadDemo extends Thread {  
     int id;  
     private static Object lock=new Object();  
     static int n=1;  
     static int input;  
       
-    public Thr(int id){  
+    public ThreadDemo(int id){  
         this.id=id;  
     }  
       
@@ -16,10 +19,10 @@ public class Thr extends Thread {
     public static void main(String[] args) {  
         Scanner scan=new Scanner(System.in);  
         input=scan.nextInt();  
-        Thr t1=new Thr(1);  
-        Thr t2=new Thr(2);  
-        Thr t3=new Thr(3);  
-        Thr t4=new Thr(0);  
+        ThreadDemo t1=new ThreadDemo(1);  
+        ThreadDemo t2=new ThreadDemo(2);  
+        ThreadDemo t3=new ThreadDemo(3);  
+        ThreadDemo t4=new ThreadDemo(0);  
           
         t1.start();  
         t2.start();  

@@ -1,12 +1,12 @@
 package com.lixuan.huawei.junior;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
 
 public class Test {
 	public static void main(String[] args) {
-		int i = 0;
-		System.out.println(i++);
-		System.out.println(++i);
+		double num = 1;
+		for(int i = 1; i <= 10; i++){
+			num += Math.pow(4, i);
+		}
+		System.out.println(num/1024);
+		System.out.println(100 * Math.pow(10, 3)/(24*3600));
 	}
 }
