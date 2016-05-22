@@ -11,9 +11,9 @@ public class RegexDemo {
 	  String regex = "^[a-z0-9A-Z\u4e00-\u9fa5]+$";
 	  return str.matches(regex);
 	 }*/
-		String str = "fsdkhfkshDD333ddd";
+		String str = "10000000000";
 		//判断是否包含数字 string regex = "(?i)[0-9]";
-		boolean b = Pattern.compile("(?i)[0-9]").matcher(str).find();
+		boolean b = Pattern.compile("[0-9]").matcher(str).find();
 		
 		//判断是否包含小写字母 string regex = "(?i)[a-z]";(?i)指不区分大小写
 		boolean b1 = Pattern.compile("(?i)[a-z]").matcher(str).find();
@@ -25,7 +25,18 @@ public class RegexDemo {
 		boolean b3 = Pattern.compile("(?i)[\\w]").matcher(str).find();
 		
 		//判断是否包含非字母数字 string regex = "(?i)[\\W]";
-		boolean b4 = Pattern.compile("(?i)[\\W]").matcher(str).find();
+		boolean b4 = Pattern.compile("[\\W]").matcher(str).find();
 		System.out.println("b:" + b + ",b1:" + b1 + ":,b2" + b2 + ",b3:" + b3 + ",b4:" + b4);
+		
+		 // 1
+		// 提取符号个数，\w为字母数字下划线
+		String specCharSubStr = Pattern.compile("[\\w]").matcher(str).replaceAll("");
+        System.out.println(specCharSubStr.length());
+		
+		
+		//判断1-10位的整数
+		if(!str.matches("^[1-9][0-9]{0,9}")){
+			System.out.println("error");
+		}
 	}
 }

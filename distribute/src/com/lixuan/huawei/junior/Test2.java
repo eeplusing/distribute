@@ -1,17 +1,18 @@
 package com.lixuan.huawei.junior;
 
-import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 public class Test2  
 {  
 	public static void main(String[] args) {
-		String key = "**#,13888889999";
-        // 提取数字
-        // 1
-		String specCharSubStr = Pattern.compile("[\\w]").matcher(key).replaceAll("");
-        System.out.println(specCharSubStr.length());
-        // 2
+		String key = "9999";
+		System.out.println(Integer.valueOf(key));
+		System.out.println(Integer.parseInt(key));
+		
+		char ch = 'a';
+		System.out.println(Integer.valueOf(ch));
+		System.out.println((int)ch);
+		
+		//System.out.println(Integer.parseInt(ch));
+        
 	}
 	
 	
