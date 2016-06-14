@@ -14,7 +14,7 @@ import java.util.Set;
  ************************************************************************************/
 //用一维数组记录每种砝码选择的个数slected[i],
 	//当前次：一种砝码组合的重量weigth[i] * selected[i],
-public class Main {
+public class WeightCombination {
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
 		//砝码种类数
@@ -41,7 +41,7 @@ public class Main {
 		//每种砝码选择的数目
 		int selectedNumCpp[] = new int[classNumCpp];
 				
-		new Main().handleFama(0, classNumCpp, listNum, selectedNumCpp, weightCpp, numsCpp);
+		new WeightCombination().handleFama(0, classNumCpp, listNum, selectedNumCpp, weightCpp, numsCpp);
 		return listNum.size();
 	}
 	

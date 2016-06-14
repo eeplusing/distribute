@@ -17,20 +17,17 @@ import javax.script.ScriptException;
 public class TwentyFourHGame {
 
 	/*
-    * 先对四个数中的任意两个数进行四则运算，得到的结果加剩余的两个数还有三个数 
-    * 再对三个数中的任意两个数进行四则运算，得到的结果加剩余的一个数还有二个数 
-    * 再对剩余的两个数进行四则运算，得到的结果如果是24，就说明该表达式能得到24，表达式正确； 
-    * 如果结果不是24，则说明表达式不正确 
+    * 1.先填写好四个数，然后再填写三个符号，不考虑括号
+    * 2.计算1中计算式的值
     */
 	public static void main(String[] args) throws ScriptException {
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
-		String str = sc.nextLine();
+		String strArr[] = sc.nextLine().split("\\s");
 		int numArr[] = new int[4];
 		for(int i = 0; i < 4; i++){
-			numArr[i] = Integer.valueOf(str.split("\\s")[i]);
+			numArr[i] = Integer.valueOf(strArr[i]);
 		}
-		
 		//返回值
 		boolean res = false;
 		//填数字
@@ -38,21 +35,22 @@ public class TwentyFourHGame {
 		for(int i = 0; i < 4; i++){
 			a = numArr[i];
 			for(int j = 0; j < 4; j++){
-				if(j != i){
-					b = numArr[j];
-					for(int k = 0; k < 4; k++){
-						if(k != i && k != j){
-							c = numArr[k];
-							d = numArr[6 - i - j -k];
-							if(calculate(a, b, c, d)){
-								res = true;
-							}
-						}
+				if(j == i){
+					continue;
+				}
+				b = numArr[j];
+				for(int k = 0; k < 4; k++){
+					if(k == j || k == i){
+						continue;
+					}
+					c = numArr[k];
+					d = numArr[6 - i - j -k];
+					if(calculate(a, b, c, d)){
+						res = true;
 					}
 				}
 			}
 		}
-		
 		System.out.println(res);
 	}
 
@@ -71,8 +69,6 @@ public class TwentyFourHGame {
 				}
 			}
 		}
-		
 		return false;
 	}
-
 }

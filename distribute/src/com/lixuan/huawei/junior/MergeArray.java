@@ -31,7 +31,7 @@ public class MergeArray {
 		
 		Arrays.sort(intArr);
 		for(int i = 0; i < intArr.length; i++){
-			System.out.println(intArr[i]);
+			System.out.print(intArr[i]);
 		}
 
 	}

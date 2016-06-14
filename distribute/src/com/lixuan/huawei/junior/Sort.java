@@ -23,7 +23,7 @@ public class Sort {
 		listStr.add("aafgdj");
 		listStr.add("asghj");
 		listStr.add("dcfggj");
-		/*参数1.compareTo(参数2)为升序，反之为降序*/
+		/**参数1.compareTo(参数2)为升序，反之为降序**/
 		Collections.sort(listStr,new Comparator<String>() {
 			public int compare(String o1, String o2) {
 				//升序

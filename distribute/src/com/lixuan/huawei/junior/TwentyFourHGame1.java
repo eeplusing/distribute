@@ -34,7 +34,7 @@ public class TwentyFourHGame1 {
 		
 	}
 	
-	public static boolean cal(int ...numArr){
+	public static boolean cal(int... numArr){
 		int length = numArr.length;
 		if(length == 2){
 			int a=numArr[0];
