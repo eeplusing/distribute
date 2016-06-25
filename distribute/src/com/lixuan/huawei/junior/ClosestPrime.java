@@ -4,9 +4,11 @@ public class ClosestPrime {
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
 		int num = sc.nextInt();
-		PrimePair primePair = findPrimeNumber(num);
-		System.out.print(primePair.primeMin + " " + primePair.primeMax);
-		sc.close();
+		if(num > 5 && num <= 10000 && num % 2 == 0 ){
+			PrimePair primePair = findPrimeNumber(num);
+			System.out.print(primePair.primeMin + " " + primePair.primeMax);
+			sc.close();
+		}
 	}
 	public static PrimePair findPrimeNumber(int number)
     {
