@@ -1,6 +1,7 @@
 package com.lixuan.huawei.junior;
 import java.util.Scanner;
 public class BaiQBaiJ {
+	
 	public static void main(String[] args) {
 		new Scanner(System.in).nextInt();
 		int i, j, k;

@@ -23,6 +23,7 @@ public class RegexDemo {
 		
 		//判断是否包含字母数字 string regex = "(?i)[\\w]"或regex="[a-zA-Z_0-9]"
 		boolean b3 = Pattern.compile("(?i)[\\w]").matcher(str).find();
+		boolean b33 = Pattern.compile("(?i)[\\w]").matcher(str).matches();
 		
 		//判断是否包含非字母数字 string regex = "(?i)[\\W]";
 		boolean b4 = Pattern.compile("[\\W]").matcher(str).find();
@@ -32,11 +33,20 @@ public class RegexDemo {
 		// 提取符号个数，\w为字母数字下划线
 		String specCharSubStr = Pattern.compile("[\\w]").matcher(str).replaceAll("");
         System.out.println(specCharSubStr.length());
-		
+        
+		//  \d = [0-9]
+        //  \D = [^0-9]
+        //一个词语字符  \w = [a-zA-Z0-9]
+        //一个非词语字符  \W = ^[a-zA-z]
+        //空白字符   \s = [\t\n\r\f\x0B]
+        //非空白字符   \S 
+        //量词：？：0或1次; *:0或多次; +：1或多次;
+        
 		
 		//判断1-10位的整数
 		if(!str.matches("^[1-9][0-9]{0,9}")){
 			System.out.println("error");
 		}
+		
 	}
 }
