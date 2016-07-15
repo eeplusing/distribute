@@ -43,7 +43,5 @@ public class Sort {
 		for(String str:strArr){
 			System.out.print(str + " ");
 		}
-	
 	}
-
 }

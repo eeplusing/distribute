@@ -11,19 +11,29 @@ package com.lixuan.huawei.junior;
 public class MaxYueShu {
 
 	public static void main(String[] args) {
-		int n = 128;
-		int m = 24;
+		int n = 24;
+		int m = 9;
 		
 		System.out.println(gcd(n,m));
 
 	}
 	
 	public static int gcd(int m,int n){
-		while(true){
+		/*while(true){
 			if((m = m%n) == 0)
 				return n;
 			if((n = n%m) == 0)
 				return m;
+		}*/
+		while(true)
+		{
+			m = Math.max(m, n);
+			n = Math.min(m, n);
+			
+			if(m % n == 0)
+				return n;
+			else 
+				return gcd(n, m % n);
 		}
 	}
 

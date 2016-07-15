@@ -14,7 +14,6 @@ public class RegexDemo {
 		String str = "10000000000";
 		//判断是否包含数字 string regex = "(?i)[0-9]";
 		boolean b = Pattern.compile("[0-9]").matcher(str).find();
-		
 		//判断是否包含小写字母 string regex = "(?i)[a-z]";(?i)指不区分大小写
 		boolean b1 = Pattern.compile("(?i)[a-z]").matcher(str).find();
 		
