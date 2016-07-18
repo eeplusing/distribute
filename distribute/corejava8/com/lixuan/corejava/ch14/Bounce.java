@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.nio.ByteOrder;
 
-import javafx.scene.layout.Border;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;

@@ -72,16 +72,22 @@ class Item implements Comparable<Item>
 	}
 	
 	
+	
+	
+	public int hashCode()
+	{
+		return 13 * description.hashCode() + 17 * partNumber;
+	}
+
+	/**  
+	 * TODO  
+	 * @see java.lang.Comparable#compareTo(java.lang.Object)  
+	 */
 	@Override
 	public int compareTo(Item o)
 	{
 		
 		return getDescription().compareTo(o.getDescription());
-	}
-	
-	public int hashCode()
-	{
-		return 13 * description.hashCode() + 17 * partNumber;
 	}
 	
 	
