@@ -11,12 +11,17 @@ package sort;
  */
 public class BubbleSort {
 	public static void main(String[] args){
-		int arr[] = {15, 2, 9, 7, 8, 10};
+		int arr[] = {100, 15, 2, 9, 7, 8, 10, 90};
 		sort(arr);
 		for(int i = 0; i < arr.length; i++){
 			System.out.print(arr[i] + " ");
 		}
 	}
+	/**
+	 * 冒泡排序：
+	 * 外层循环执行n-1次，
+	 * 内层循环:两邻接比较
+	 * */
 	public static void sort(int[] arr){
 		for(int i = 1; i < arr.length; i++){
 			for(int j = 0; j < arr.length - i; j++){

@@ -17,8 +17,8 @@ public class InsertSort {
 			System.out.print(arr[i] + " ");
 		}
 	}
-	
-	public static void sort(int[] arr){
+
+	private static void sort(int[] arr) {
 		int temp = 0;
 		for(int i = 1; i < arr.length; i++){
 			temp = arr[i];
@@ -30,5 +30,7 @@ public class InsertSort {
 			arr[j] = temp;
 		}
 	}
+	
+	
 }
   
