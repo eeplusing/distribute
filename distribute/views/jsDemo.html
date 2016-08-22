@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+/*
+ * 
+ onload 和 onunload 事件
+ onload 和 onunload 事件会在用户进入或离开页面时被触发。
+ onload 事件可用于检测访问者的浏览器类型和浏览器版本，并基于这些信息来加载网页的正确版本。
+ onload 和 onunload 事件可用于处理 cookie 
+ 在Jquery里面，我们可以看到两种写法:$(function(){}) 和$(document).ready(function(){})
+
+ 这两个方法的效果都是一样的，都是在dom文档树加载完之后执行一个函数（注意，这里面的文档树加载完不代表全部文件加载完）。
+
+ 而window.onload是在dom文档树加载完和所有文件加载完之后执行一个函数。
+ document.ready = function (callback) {
+	    ///兼容FF,Google
+	    if (document.addEventListener) {
+	        document.addEventListener('DOMContentLoaded', function () {
+	            document.removeEventListener('DOMContentLoaded', arguments.callee, false);
+	            callback();
+	        }, false)
+	    }
+	     //兼容IE
+	    else if (document.attachEvent) {
+	        document.attachEvent('onreadytstatechange', function () {
+	              if (document.readyState == "complete") {
+	                        document.detachEvent("onreadystatechange", arguments.callee);
+	                        callback();
+	               }
+	        })
+	    }
+	    else if (document.lastChild == document.body) {
+	        callback();
+	    }
+	}
+
+window.onload = function () {
+ alert('onload');
+};
+
+
+ */
+
+window.onload = function(){
+	 
+	/*  
+	//遍历数组
+	 var arr = new Array(13.5,3,4,5,6);
+	 for(var i=0;i<arr.length;i++){
+	  arr[i] = arr[i]/2.0;
+	  alert(arr[i])
+	 }  
+	 */
+	 
+	 /* 
+	1>jQuery插件支持的转换方式： 
+	代码如下:
+	$.parseJSON( jsonstr ); //jQuery.parseJSON(jsonstr),可以将json字符串转换成json对象 
+
+	2>浏览器支持的转换方式(Firefox，chrome，opera，safari，ie9，ie8)等浏览器： 
+	代码如下:
+	JSON.parse(jsonstr); //可以将json字符串转换成json对象 
+	JSON.stringify(jsonobj); //可以将json对象转换成json对符串 
+	注：ie8(兼容模式),ie7和ie6没有JSON对象，推荐采用JSON官方的方式，引入json.js。 
+
+	3>Javascript支持的转换方式： 
+	eval('(' + jsonstr + ')'); //可以将json字符串转换成json对象,注意需要在json字符外包裹一对小括号 
+	注：ie8(兼容模式),ie7和ie6也可以使用eval()将字符串转为JSON对象，但不推荐这些方式，这种方式不安全eval会执行json串中的表达式。 
+
+	4>JSON官方的转换方式： 
+	http://www.json.org/提供了一个json.js,这样ie8(兼容模式),ie7和ie6就可以支持JSON对象以及其stringify()和parse()方法； 
+	可以在https://github.com/douglascrockford/JSON-js上获取到这个js，一般现在用json2.js。
+	 */
+	 
+	 
+	 /* 将js对象转换为json字符串 */
+	 /* 
+	 var foo = {foundation: "Mozilla", model: "box", week: 45, transport: "car", month: 7};//js对象
+	 var jsonString1 = JSON.stringify(foo);//将js对象转换为json字符串
+	 var jsonString2 = JSON.stringify(foo,censor);//将js对象转换为json字符串
+	 alert("js对象转换为json字符串：" + jsonString1);
+	 alert("js对象转换为json字符串（只返回值不是字符的键值对）：" + jsonString2); 
+	 */
+	 
+	 /* 将json字符串转换为json对象 */
+	 var jsonstr1 = "{\"firstName\":\"Brett\"}";
+	 var jsonstr2 = "{\"firstName\":\"Brett\",\"lastName\":\"McLaughlin\",\"email\":\"aaaa\"}"; 
+	 
+	 var jsonstr3 = "{\"people\":[{\"firstName\":\"Brett\",\"lastName\":\"McLaughlin\",\"email\":\"aaaa\"},{\"firstName\":\"Jason\",\"lastName\":\"Hunter\",\"email\":\"bbbb\"},{\"firstName\":\"Elliotte\",\"lastName\":\"Harold\",\"email\":\"cccc\"}]}"; 
+	 var jsonstr4 = "{" + 
+	    "\"programmers\":[{" + 
+		    "\"firstName\":\"Brett\"," + 
+		    "\"lastName\":\"McLaughlin\"," + 
+		    "\"email\":\"aaaa\"" + 
+	    "}, {" + 
+		    "\"firstName\": \"Jason\"," + 
+		    "\"lastName\": \"Hunter\"," + 
+		    "\"email\": \"bbbb\"" + 
+	    "}]" + 
+	"}";
+	 var jsonstr11 = JSON.parse(jsonstr1);
+	 alert(jsonstr11.firstName);
+	 var jsonstr22 = JSON.parse(jsonstr2);
+	 alert(jsonstr22.email);
+	 var jsonstr33 = JSON.parse(jsonstr3);
+	 alert(jsonstr33.people[0].firstName);
+	 var jsonstr44 = JSON.parse(jsonstr4);
+	 alert(jsonstr44.programmers[1].lastName);
+	 
+ }
+ 
+ //var jsonString2 = JSON.stringify(foo,censor);//将js对象转换为json字符串( json只返回符合过滤条件的键值对)
+ /* function censor(key, value) {
+	  if (typeof(value) == "string") {
+	    return undefined;
+	  }
+	  return value;
+	} */
+
+//js构造函数
+/* function Person(name,age,job){
+    this.name = name;
+    this.age = age;
+    this.job = job;
+    this.getName = function () {
+        return this.name;
+    }
+}
+var person1 = new Person('Jack', 19, 'SoftWare Engineer');
+var person2 = new Person('Liye', 23, 'Mechanical Engineer'); */
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

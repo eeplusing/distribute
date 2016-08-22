@@ -25,17 +25,17 @@ public class Thr extends Thread {
         t3.start();  
         t4.start();   
     }  
-      
+     
     public void run(){  
-        for(int i=0;i<input;i++){  
+        for(int i = 0;i < input; i++){  
             synchronized (lock) {  
-                while(n%4!=id){  
-                    try {  
-                        lock.wait();  
-                    } catch (InterruptedException e) {  
-                        e.printStackTrace();  
-                    }  
-                }  
+               while(n % 4 != id){
+            	   try {
+            		   lock.wait();
+				}catch (InterruptedException e) {
+					e.printStackTrace();  
+				}
+               }
                   
                 if(id==1){  
                     System.out.print("A");  

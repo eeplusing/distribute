@@ -6,8 +6,8 @@ import com.lixuan.interview.classextend.C;
 
 public class Test {
 	public static void main(String[] args) {
-		A a = new C();
-		a = new A();
+		int[][] arr = {{}, {}};
+		System.out.println(arr.length);
 	}
 }
   
