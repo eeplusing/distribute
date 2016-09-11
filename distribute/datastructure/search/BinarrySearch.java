@@ -5,29 +5,26 @@ public class BinarrySearch {
 		int arr[] = {1, 2, 4, 7, 8, 10};
 		int arr1[] = new int[1];
 		
-		System.out.println(binarrySearch(arr, 10));
+		System.out.println(binarrySearch(arr, 2));
 	}
 	
 	public static int binarrySearch(int[] arr, int value){
 		
-		int hight = arr.length - 1;
+		int high = arr.length - 1;
 		int low = 0;
 		int middle;
-		while(true){
-			middle = (hight + low) / 2;
-			if(low > hight){
-				return -1;
-			}else if(arr[middle] == value){
+		while(low <= high){
+			middle = (high + low) / 2;
+			if(arr[middle] == value){
 				return middle;
-			}else{
-				if(arr[middle] > value){
-					hight -= 1;
-				}
-				if(arr[middle] < value){
-					low += 1;
-				}
+			}else if(arr[middle] > value){
+				high = middle;
+			}
+			else{
+				low = middle;
 			}
 		}
+		return -1;
 	}
 }
   

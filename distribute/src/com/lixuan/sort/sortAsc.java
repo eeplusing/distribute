@@ -1,4 +1,4 @@
-package com.lixuan.huawei.junior;
+package com.lixuan.sort;
 
 import java.util.Arrays;
 import java.util.Scanner;
